@@ -41,7 +41,7 @@ export default function DocumentSelect() {
         <h2>Select Existing Document</h2>
         <a href="/new/">
           <button>
-            <img src="../public/create.svg" />
+            <img src="../create.svg" />
           </button>
         </a>
       </navbar>

@@ -4,6 +4,7 @@ import "quill/dist/quill.snow.css";
 import { io } from "socket.io-client";
 import { useParams } from "react-router-dom";
 import "./TextEditor.css";
+import Footer from "./Footer";
 
 const SAVE_INTERVAL_MS = 2000;
 const TOOLBAR_OPTIONS = [
@@ -96,5 +97,10 @@ export default function TextEditor() {
     q.setText("Loading...");
     setQuill(q);
   }, []);
-  return <div className="container" ref={wrapperRef}></div>;
+  return (
+    <>
+      <div className="container" ref={wrapperRef} />
+      <Footer documentId={documentId} />
+    </>
+  );
 }
