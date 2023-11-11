@@ -15,6 +15,11 @@ const io = require("socket.io")(3001, {
 const defaultValue = "";
 
 io.on("connection", (socket) => {
+  socket.on("document-select", async () => {
+    const documents = await getAllDocuments();
+    socket.emit("load-documents", documents);
+  });
+
   socket.on("get-document", async (documentId) => {
     const document = await findOrCreateDocument(documentId);
     socket.join(documentId);
@@ -36,4 +41,8 @@ async function findOrCreateDocument(id) {
   const document = await Document.findById(id);
   if (document) return document;
   return await Document.create({ _id: id, data: defaultValue });
+}
+
+async function getAllDocuments() {
+  return await Document.find({}, "_id");
 }
