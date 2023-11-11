@@ -9,7 +9,7 @@ export default function DocumentSelect() {
   const [socket, setSocket] = useState();
 
   useEffect(() => {
-    const s = io(`http://170.64.216.1013001`);
+    const s = io(`http://170.64.216.101:3001`);
     setSocket(s);
 
     return () => {
