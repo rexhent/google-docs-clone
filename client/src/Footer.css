@@ -1,7 +1,7 @@
 .footer {
   padding: 10px;
 }
-footer {
+.footer footer {
   width: 100%;
   left: 0;
   bottom: 0;
@@ -9,15 +9,15 @@ footer {
   justify-content: space-between;
   position: sticky;
 }
-a {
+.footer a {
   text-decoration: none;
   color: black;
 }
-button {
+.footer button {
   text-decoration: none;
   color: #f3f3f3;
 }
-a button {
+.footer a button {
   margin-top: 10px;
   margin-right: 10px;
   padding: 10px;

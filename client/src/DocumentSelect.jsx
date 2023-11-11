@@ -32,19 +32,34 @@ export default function DocumentSelect() {
       ? documents
       : documents.map((id) => (
           <a key={id} href={`/documents/${id}`}>
-            {id}
+            <button key={id}> {id}</button>
           </a>
         ));
+
+  const [docName, setDocName] = useState("");
+
+  const handleInputChange = (e) => {
+    setDocName(e.target.value);
+  };
 
   return (
     <div>
       <div className="navbar">
         <h2>Select Existing Document</h2>
-        <a href="/new/">
-          <button>
-            <img src="../create.svg" />
-          </button>
-        </a>
+        <div className="form">
+          <input
+            value={docName}
+            onChange={handleInputChange}
+            id="input"
+            type="text"
+            placeholder="Enter document name"
+          />
+          <a href={docName == "" ? "/new/" : `/documents/${docName}`}>
+            <button>
+              <img src="../create.svg" />
+            </button>
+          </a>
+        </div>
       </div>
       <div className="list">{listOfDocuments}</div>
       <Footer documentId="" document={false} />

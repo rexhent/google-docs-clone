@@ -12,12 +12,39 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.list a {
-  display: flex;
-  margin: 10px;
-  text-decoration: none;
-  color: #6750a4;
+@media only screen and (max-width: 600px) {
+  .list {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar h2 {
+    width: 50%;
+    font-size: 1em;
+  }
+  .form input {
+    display: none;
+  }
 }
+
+.list {
+  width: 100%;
+}
+
+.list button {
+  /* display: flex; */
+  width: 24em;
+  padding: 12px;
+  margin: 10px;
+  background-color: #eaddff;
+  border: none;
+  border-radius: 10px;
+}
+.list a button {
+  color: #6750a4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -31,11 +58,26 @@ body {
   color: #f3f3f3;
 }
 
-.navbar button {
-  margin-top: 10px;
-  margin-right: 10px;
+.form {
+  display: flex;
   padding: 10px;
+}
+.form a button {
+  padding: 1em;
+  margin-left: 0.5em;
   background-color: #6750a4;
   border: none;
   border-radius: 10px;
+}
+.form a {
+  /* margin: 10px; */
+}
+
+.form input {
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+}
+
+.form input::placeholder {
 }
