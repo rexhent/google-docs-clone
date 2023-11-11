@@ -7,7 +7,6 @@ export default function Footer({ documentId, document }) {
       <footer>
         {document && (
           <>
-            ZZ
             <a href="/">
               <button>Home</button>
             </a>
