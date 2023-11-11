@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import "./DocumentSelect.css";
+import Footer from "./Footer";
 
 export default function DocumentSelect() {
   const [documents, setDocuments] = useState("Loading...");
@@ -46,6 +47,7 @@ export default function DocumentSelect() {
         </a>
       </div>
       <div className="list">{listOfDocuments}</div>
+      <Footer documentId="" document={false} />
     </div>
   );
 }

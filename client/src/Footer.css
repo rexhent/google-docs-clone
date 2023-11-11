@@ -9,11 +9,15 @@ footer {
   justify-content: space-between;
   position: sticky;
 }
-footer a {
+a {
+  text-decoration: none;
+  color: black;
+}
+button {
   text-decoration: none;
   color: #f3f3f3;
 }
-footer button {
+a button {
   margin-top: 10px;
   margin-right: 10px;
   padding: 10px;

@@ -1,15 +1,27 @@
 import "./Footer.css";
 import PropTypes from "prop-types";
 
-export default function Footer({ documentId }) {
+export default function Footer({ documentId, document }) {
   return (
     <div className="footer">
       <footer>
-        <button>
-          <a href="/">Home</a>
-        </button>
-        <p>{documentId}</p>
-        <p>&copy; {`GPLv3 rexhent ${new Date().getFullYear()}.`}</p>
+        {document && (
+          <>
+            <a href="/">
+              <button>Home</button>
+            </a>
+            <p>{documentId}</p>
+          </>
+        )}
+        <p>
+          <a
+            href="http://github.com/rexhent/google-docs-clone"
+            target="_blank"
+            rel="noreferrer"
+          >
+            &copy; {`GPLv3 rexhent ${new Date().getFullYear()}.`}
+          </a>
+        </p>
       </footer>
     </div>
   );
@@ -17,4 +29,5 @@ export default function Footer({ documentId }) {
 
 Footer.propTypes = {
   documentId: PropTypes.string.isRequired,
+  document: PropTypes.bool.isRequired,
 };
