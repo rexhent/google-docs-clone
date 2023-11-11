@@ -56,4 +56,7 @@ body {
   .container .ql-toolbar.ql-snow {
     display: none;
   }
+  .footer {
+    display: none;
+  }
 }
