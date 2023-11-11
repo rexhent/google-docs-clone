@@ -18,7 +18,7 @@ body {
   text-decoration: none;
   color: #6750a4;
 }
-navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   background-color: #49454f;
@@ -26,12 +26,12 @@ navbar {
   border-radius: 10px;
 }
 
-navbar h2 {
+.navbar h2 {
   margin-left: 10px;
   color: #f3f3f3;
 }
 
-navbar button {
+.navbar button {
   margin-top: 10px;
   margin-right: 10px;
   padding: 10px;

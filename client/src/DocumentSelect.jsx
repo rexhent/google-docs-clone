@@ -37,14 +37,14 @@ export default function DocumentSelect() {
 
   return (
     <div>
-      <navbar>
+      <div className="navbar">
         <h2>Select Existing Document</h2>
         <a href="/new/">
           <button>
             <img src="../create.svg" />
           </button>
         </a>
-      </navbar>
+      </div>
       <div className="list">{listOfDocuments}</div>
     </div>
   );
