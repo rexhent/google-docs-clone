@@ -10,6 +10,14 @@ footer {
   position: sticky;
 }
 footer a {
-  color: #ffffff;
   text-decoration: none;
+  color: #f3f3f3;
+}
+footer button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #6750a4;
+  border: none;
+  border-radius: 10px;
 }

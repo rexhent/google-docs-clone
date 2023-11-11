@@ -5,6 +5,9 @@ export default function Footer({ documentId }) {
   return (
     <div className="footer">
       <footer>
+        <button>
+          <a href="/">Home</a>
+        </button>
         <p>{documentId}</p>
         <p>&copy; {`GPLv3 rexhent ${new Date().getFullYear()}.`}</p>
       </footer>
