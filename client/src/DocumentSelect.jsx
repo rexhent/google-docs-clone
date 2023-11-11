@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import "./DocumentSelect.css";
 import Footer from "./Footer";
+import { v4 as uuidV4 } from "uuid";
 
 export default function DocumentSelect() {
   const [documents, setDocuments] = useState("Loading...");
@@ -54,7 +55,11 @@ export default function DocumentSelect() {
             type="text"
             placeholder="Enter document name"
           />
-          <a href={docName == "" ? "/new/" : `/documents/${docName}`}>
+          <a
+            href={
+              docName == "" ? `/documents/${uuidV4()}` : `/documents/${docName}`
+            }
+          >
             <button>
               <img src="../create.svg" />
             </button>
