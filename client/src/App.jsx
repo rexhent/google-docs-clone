@@ -1,4 +1,5 @@
 import TextEditor from "./TextEditor";
+import DocumentSelect from "./DocumentSelect";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,11 +12,14 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact>
+        <Route path="/new/" exact>
           <Redirect to={`/documents/${uuidV4()}`} />
         </Route>
         <Route path="/documents/:id" exact>
           <TextEditor />
+        </Route>
+        <Route path="/" exact>
+          <DocumentSelect />
         </Route>
       </Switch>
     </Router>
