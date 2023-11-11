@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const Document = require("./Document");
+const dotenv = require("dotenv").config();
 
-mongoose.connect("mongodb://localhost/google-docs-clone", {});
+mongoose.connect(process.env.DB, {});
 
 const io = require("socket.io")(3001, {
   cors: {
