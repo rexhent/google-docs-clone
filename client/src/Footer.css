@@ -1,0 +1,15 @@
+.footer {
+  padding: 10px;
+}
+footer {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+}
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}

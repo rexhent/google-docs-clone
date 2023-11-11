@@ -100,7 +100,7 @@ export default function TextEditor() {
   return (
     <>
       <div className="container" ref={wrapperRef} />
-      <Footer documentId={documentId} />
+      <Footer documentId={documentId}></Footer>
     </>
   );
 }
