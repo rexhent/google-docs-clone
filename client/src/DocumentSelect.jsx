@@ -30,7 +30,7 @@ export default function DocumentSelect() {
     documents === "Loading..."
       ? documents
       : documents.map((id) => (
-          <a key={id} href={`/documents/:${id}`}>
+          <a key={id} href={`/documents/${id}`}>
             {id}
           </a>
         ));
