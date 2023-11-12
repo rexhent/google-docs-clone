@@ -7,7 +7,7 @@ import "./TextEditor.css";
 import Footer from "./Footer";
 
 const SAVE_INTERVAL_MS = 2000;
-const TOOLBAR_OPTIONS = [
+const DEFAULT_TOOLBAR_OPTIONS = [
   [{ header: [1, 2, 3, 4, 5, 6, false] }],
   [{ font: [] }],
   [{ list: "ordered" }, { list: "bullet" }],
@@ -19,10 +19,18 @@ const TOOLBAR_OPTIONS = [
   ["clean"],
 ];
 
+const MOBILE_TOOLBAR_OPTIONS = [
+  [{ header: [1, 2, 3, 4, 5, 6, false] }],
+  ["bold", "italic", "underline"],
+  [{ color: [] }, { background: [] }],
+  ["image", "clean"],
+];
+
 export default function TextEditor() {
   const { id: documentId } = useParams();
   const [socket, setSocket] = useState();
   const [quill, setQuill] = useState();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
   useEffect(() => {
     const s = io(`http://170.64.216.101:3001`);
@@ -30,6 +38,19 @@ export default function TextEditor() {
 
     return () => {
       s.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -83,20 +104,25 @@ export default function TextEditor() {
     };
   }, [socket, quill]);
 
-  const wrapperRef = useCallback((wrapper) => {
-    if (wrapper == null) return;
+  const wrapperRef = useCallback(
+    (wrapper) => {
+      if (wrapper == null) return;
 
-    wrapper.innerHTML = "";
-    const editor = document.createElement("div");
-    wrapper.append(editor);
-    const q = new Quill(editor, {
-      theme: "snow",
-      modules: { toolbar: TOOLBAR_OPTIONS },
-    });
-    q.disable();
-    q.setText("Loading...");
-    setQuill(q);
-  }, []);
+      wrapper.innerHTML = "";
+      const editor = document.createElement("div");
+      wrapper.append(editor);
+      const q = new Quill(editor, {
+        theme: "snow",
+        modules: {
+          toolbar: isMobile ? MOBILE_TOOLBAR_OPTIONS : DEFAULT_TOOLBAR_OPTIONS,
+        },
+      });
+      q.disable();
+      q.setText("Loading...");
+      setQuill(q);
+    },
+    [isMobile]
+  );
   return (
     <>
       <div className="container" ref={wrapperRef} />

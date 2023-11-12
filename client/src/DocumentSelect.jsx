@@ -7,6 +7,7 @@ import { v4 as uuidV4 } from "uuid";
 export default function DocumentSelect() {
   const [documents, setDocuments] = useState("Loading...");
   const [socket, setSocket] = useState();
+  const [docName, setDocName] = useState("");
 
   useEffect(() => {
     const s = io(`http://170.64.216.101:3001`);
@@ -36,8 +37,6 @@ export default function DocumentSelect() {
             <button key={id}> {id}</button>
           </a>
         ));
-
-  const [docName, setDocName] = useState("");
 
   const handleInputChange = (e) => {
     setDocName(e.target.value);
