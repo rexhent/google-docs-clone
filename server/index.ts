@@ -14,6 +14,7 @@ const io = require("socket.io")(3001, {
 });
 
 console.log("This server is running");
+console.log(process.env.DB);
 
 const defaultValue = "";
 
