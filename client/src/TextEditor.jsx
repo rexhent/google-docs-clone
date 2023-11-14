@@ -33,7 +33,9 @@ export default function TextEditor() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
   useEffect(() => {
-    const s = io(`http://170.64.216.101`);
+    // const s = io(`http://170.64.216.101`);
+    const s = io(`https://google-docs-clone-backend-r332h.ondigitalocean.app/`);
+
     setSocket(s);
 
     return () => {

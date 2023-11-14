@@ -10,7 +10,8 @@ export default function DocumentSelect() {
   const [docName, setDocName] = useState("");
 
   useEffect(() => {
-    const s = io(`http://170.64.216.101`);
+    // const s = io(`http://170.64.216.101`);
+    const s = io(`https://google-docs-clone-backend-r332h.ondigitalocean.app/`);
     setSocket(s);
 
     return () => {
