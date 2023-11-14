@@ -20,6 +20,7 @@ const io = require("socket.io")(3001, {
         credentials: true,
     },
 });
+console.log("This server is running");
 const defaultValue = "";
 io.on("connection", (socket) => {
     socket.on("document-select", () => __awaiter(void 0, void 0, void 0, function* () {

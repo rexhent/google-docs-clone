@@ -13,6 +13,8 @@ const io = require("socket.io")(3001, {
   },
 });
 
+console.log("This server is running");
+
 const defaultValue = "";
 
 io.on("connection", (socket: any) => {
