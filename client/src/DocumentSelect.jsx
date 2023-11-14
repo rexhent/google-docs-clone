@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import "./DocumentSelect.css";
 import Footer from "./Footer";
 import { v4 as uuidV4 } from "uuid";
-import "./assets/create.svg";
+import CreateSvg from "./assets/create.svg";
 
 export default function DocumentSelect() {
   const [documents, setDocuments] = useState("Loading...");
@@ -62,7 +62,7 @@ export default function DocumentSelect() {
             }
           >
             <button>
-              <img src="./assets/create.svg" />
+              <img src={CreateSvg} />
             </button>
           </a>
         </div>
