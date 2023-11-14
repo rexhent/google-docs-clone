@@ -10,7 +10,7 @@ export default function DocumentSelect() {
   const [docName, setDocName] = useState("");
 
   useEffect(() => {
-    const s = io(`http://170.64.216.101:3001`);
+    const s = io(`http://170.64.216.101`);
     setSocket(s);
 
     return () => {

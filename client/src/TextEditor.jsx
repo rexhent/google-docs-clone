@@ -33,7 +33,7 @@ export default function TextEditor() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
   useEffect(() => {
-    const s = io(`http://170.64.216.101:3001`);
+    const s = io(`http://170.64.216.101`);
     setSocket(s);
 
     return () => {
