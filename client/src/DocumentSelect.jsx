@@ -61,7 +61,7 @@ export default function DocumentSelect() {
             }
           >
             <button>
-              <img src="../create.svg" />
+              <svg href="./assets/create.svg" />
             </button>
           </a>
         </div>
