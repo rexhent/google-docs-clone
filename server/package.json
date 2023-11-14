@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:digitalocean": "npm i && npm i --save-dev && tsc --build && nodemon server.js",
-    "devStart": "nodemon server.ts",
+    "build:digitalocean": "npm i && npm i --save-dev && tsc --build && nodemon index.js",
+    "devStart": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
