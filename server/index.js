@@ -21,6 +21,7 @@ const io = require("socket.io")(3001, {
     },
 });
 console.log("This server is running");
+console.log(process.env.DB);
 const defaultValue = "";
 io.on("connection", (socket) => {
     socket.on("document-select", () => __awaiter(void 0, void 0, void 0, function* () {
