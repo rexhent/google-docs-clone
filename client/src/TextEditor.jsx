@@ -34,7 +34,8 @@ export default function TextEditor() {
 
   useEffect(() => {
     // const s = io(`http://170.64.216.101`);
-    const s = io(`https://google-docs-clone-backend-r332h.ondigitalocean.app/`);
+    // const s = io(`https://google-docs-clone-backend-r332h.ondigitalocean.app/`);
+    const s = io(`https://ec2.rexhent.xyz/`);
 
     setSocket(s);
 
