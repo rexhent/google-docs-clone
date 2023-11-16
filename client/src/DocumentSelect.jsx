@@ -70,6 +70,7 @@ export default function DocumentSelect() {
         </div>
       </div>
       <div className="list">{listOfDocuments}</div>
+      <p>WARNING: Breaking changes soon</p>
       <Footer documentId="" document={false} />
     </div>
   );
