@@ -6,7 +6,7 @@
   "scripts": {
     "build:digitalocean": "npm i && npm i --save-dev && tsc --build && nodemon index.js",
     "start": "tsc --build && node index.js",
-    "devStart": "nodemon index.ts",
+    "devStart": "nodemon pg.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "mongoose": "^8.0.0",
+    "pg": "^8.11.3",
     "socket.io": "^4.7.2"
   },
   "devDependencies": {
