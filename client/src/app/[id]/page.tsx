@@ -1,10 +1,10 @@
+"use client";
 import { useCallback, useEffect, useState } from "react";
 import Quill from "quill";
 import "quill/dist/quill.snow.css";
 import { io } from "socket.io-client";
-import { useParams } from "react-router-dom";
 import "./TextEditor.css";
-import Footer from "./Footer";
+import Footer from "@/components/Footer";
 
 const SAVE_INTERVAL_MS = 2000;
 const DEFAULT_TOOLBAR_OPTIONS = [
@@ -26,8 +26,8 @@ const MOBILE_TOOLBAR_OPTIONS = [
   ["image", "clean"],
 ];
 
-export default function TextEditor() {
-  const { id: documentId } = useParams();
+export default function TextEditor({ params }: { params: { id: string } }) {
+  const documentId = params.id;
   const [socket, setSocket] = useState();
   const [quill, setQuill] = useState();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);

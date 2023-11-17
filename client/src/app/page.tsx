@@ -1,9 +1,10 @@
+"use client";
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
-import "./DocumentSelect.css";
-import Footer from "./Footer";
+import "./page.css";
+import Footer from "@/components/Footer";
 import { v4 as uuidV4 } from "uuid";
-import CreateSvg from "./assets/create.svg";
+import Image from "next/image";
 
 export default function DocumentSelect() {
   const [documents, setDocuments] = useState("Loading...");
@@ -60,7 +61,7 @@ export default function DocumentSelect() {
           />
           <a href={docName == "" ? `/${uuidV4()}` : `/${docName}`}>
             <button>
-              <img src={CreateSvg} />
+              <Image src="/create.svg" width="24" height="24" />
             </button>
           </a>
         </div>
