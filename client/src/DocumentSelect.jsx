@@ -37,7 +37,7 @@ export default function DocumentSelect() {
     documents === "Loading..."
       ? documents
       : documents.map((id) => (
-          <a key={id} href={`/documents/${id}`}>
+          <a key={id} href={`/${id}`}>
             <button key={id}> {id}</button>
           </a>
         ));
@@ -58,11 +58,7 @@ export default function DocumentSelect() {
             type="text"
             placeholder="Enter document name"
           />
-          <a
-            href={
-              docName == "" ? `/documents/${uuidV4()}` : `/documents/${docName}`
-            }
-          >
+          <a href={docName == "" ? `/${uuidV4()}` : `/${docName}`}>
             <button>
               <img src={CreateSvg} />
             </button>

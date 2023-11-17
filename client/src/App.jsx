@@ -31,7 +31,7 @@ export default function App() {
       )} */}
       <Router>
         <Routes>
-          <Route path="/documents/:id" element={<TextEditor />} />
+          <Route path="/:id" element={<TextEditor />} />
           <Route path="/" element={<DocumentSelect />} />
         </Routes>
       </Router>
