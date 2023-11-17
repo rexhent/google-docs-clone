@@ -33,7 +33,7 @@ export default function TextEditor() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
   useEffect(() => {
-    // const s = io(`http://170.64.216.101`);
+    // const s = io(`http://192.168.150.112:3001`);
     // const s = io(`https://google-docs-clone-backend-r332h.ondigitalocean.app/`);
     const s = io(`https://ec2.rexhent.xyz/`);
 

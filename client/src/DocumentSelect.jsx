@@ -11,7 +11,7 @@ export default function DocumentSelect() {
   const [docName, setDocName] = useState("");
 
   useEffect(() => {
-    // const s = io(`http://170.64.216.101`);
+    // const s = io(`http://192.168.150.112:3001`);
     // const s = io(`https://google-docs-clone-backend-r332h.ondigitalocean.app/`);
     const s = io(`https://ec2.rexhent.xyz/`);
     setSocket(s);
@@ -27,6 +27,7 @@ export default function DocumentSelect() {
     socket.once("load-documents", (documents) => {
       const ids = documents.map((doc) => doc._id);
       setDocuments(ids);
+      console.log(ids);
     });
 
     socket.emit("document-select");
