@@ -1,9 +1,9 @@
-// documentSchema.js
+// Document.js
 const { Pool } = require("pg");
 const dotenv = require("dotenv").config();
 
 const pool = new Pool({
-  connectionString: process.env.PG,
+  connectionString: process.env.POSTGRES_URL + "?sslmode=require",
 });
 
 async function createDocumentSchema() {
@@ -16,8 +16,6 @@ async function createDocumentSchema() {
 
   await pool.query(query);
 }
-
-createDocumentSchema();
 
 module.exports = {
   createDocumentSchema,
