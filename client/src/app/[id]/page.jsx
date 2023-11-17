@@ -33,7 +33,8 @@ export default function TextEditor({ params }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
   useEffect(() => {
-    const s = io(`https://ec2.rexhent.xyz/`);
+    const s = io(`https://google-docs-clone-69nb.onrender.com`);
+    // const s = io(`https://ec2.rexhent.xyz/`);
 
     setSocket(s);
 
