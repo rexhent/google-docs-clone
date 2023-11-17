@@ -1,9 +1,10 @@
+"use client";
 import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
-import "./DocumentSelect.css";
-import Footer from "./Footer";
+import "./page.css";
+import Footer from "@/components/Footer";
 import { v4 as uuidV4 } from "uuid";
-import CreateSvg from "./assets/create.svg";
+import Image from "next/image";
 
 export default function DocumentSelect() {
   const [documents, setDocuments] = useState("Loading...");
@@ -11,8 +12,6 @@ export default function DocumentSelect() {
   const [docName, setDocName] = useState("");
 
   useEffect(() => {
-    // const s = io(`http://170.64.216.101`);
-    // const s = io(`https://google-docs-clone-backend-r332h.ondigitalocean.app/`);
     const s = io(`https://ec2.rexhent.xyz/`);
     setSocket(s);
 
@@ -27,6 +26,7 @@ export default function DocumentSelect() {
     socket.once("load-documents", (documents) => {
       const ids = documents.map((doc) => doc._id);
       setDocuments(ids);
+      console.log(ids);
     });
 
     socket.emit("document-select");
@@ -59,13 +59,17 @@ export default function DocumentSelect() {
           />
           <a href={docName == "" ? `/${uuidV4()}` : `/${docName}`}>
             <button>
-              <img src={CreateSvg} />
+              <Image
+                src="/create.svg"
+                width="24"
+                height="24"
+                alt="Create document button"
+              />
             </button>
           </a>
         </div>
       </div>
       <div className="list">{listOfDocuments}</div>
-      <p>WARNING: Breaking changes soon</p>
       <Footer documentId="" document={false} />
     </div>
   );

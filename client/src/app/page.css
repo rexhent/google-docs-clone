@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3f3f3;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  .list {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar h2 {
+    width: 50%;
+    font-size: 1em;
+  }
+  .form input {
+    display: none;
+  }
+}
+
+.list {
+  width: 100%;
+}
+
+.list button {
+  /* display: flex; */
+  width: 24em;
+  padding: 12px;
+  margin: 10px;
+  background-color: #eaddff;
+  border: none;
+  border-radius: 10px;
+}
+.list a button {
+  color: #6750a4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #49454f;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.navbar h2 {
+  margin-left: 10px;
+  color: #f3f3f3;
+}
+
+.form {
+  display: flex;
+  padding: 10px;
+}
+.form a button {
+  padding: 1em;
+  margin-left: 0.5em;
+  background-color: #6750a4;
+  border: none;
+  border-radius: 10px;
+}
+.form a {
+  /* margin: 10px; */
+}
+
+.form input {
+  padding: 1em;
+  border: none;
+  border-radius: 10px;
+}
+
+.form input::placeholder {
+}

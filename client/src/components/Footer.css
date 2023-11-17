@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.footer {
+  font-family: "Inter", sans-serif;
+  padding: 10px;
+}
+.footer footer {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+}
+.footer a {
+  text-decoration: none;
+  color: black;
+}
+.footer button {
+  text-decoration: none;
+  color: #f3f3f3;
+}
+.footer a button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #6750a4;
+  border: none;
+  border-radius: 10px;
+}
