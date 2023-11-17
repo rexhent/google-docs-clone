@@ -17,6 +17,8 @@ async function createDocumentSchema() {
   await pool.query(query);
 }
 
+createDocumentSchema();
+
 module.exports = {
   createDocumentSchema,
   pool,

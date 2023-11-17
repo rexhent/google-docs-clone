@@ -1,4 +1,5 @@
-const { createDocumentSchema, pool } = require("./documentSchema");
+// const { createDocumentSchema, pool } = require("./documentSchema.ts");
+import { createDocumentSchema, pool } from "./documentSchema";
 
 const io = require("socket.io")(3001, {
   cors: {
@@ -19,7 +20,7 @@ io.on("connection", (socket: any) => {
     socket.emit("load-documents", documents);
   });
 
-  socket.on("get-document", async (documentId: any) => {
+  socket.on("get-document", async (documentId: string) => {
     const document = await findOrCreateDocument(documentId);
     socket.join(documentId);
     socket.emit("load-document", document.data);
@@ -28,13 +29,13 @@ io.on("connection", (socket: any) => {
       socket.broadcast.to(documentId).emit("receive-changes", delta);
     });
 
-    socket.on("save-document", async (data: any) => {
+    socket.on("save-document", async (data: object) => {
       await updateDocument(documentId, data);
     });
   });
 });
 
-async function findOrCreateDocument(id: any) {
+async function findOrCreateDocument(id: string) {
   if (id == null) return;
 
   const result = await pool.query("SELECT * FROM documents WHERE _id = $1", [
@@ -57,6 +58,6 @@ async function getAllDocuments() {
   return result.rows;
 }
 
-async function updateDocument(id: any, data: any) {
+async function updateDocument(id: string, data: object) {
   await pool.query("UPDATE documents SET data = $1 WHERE _id = $2", [data, id]);
 }
