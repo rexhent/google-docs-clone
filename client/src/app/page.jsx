@@ -61,7 +61,12 @@ export default function DocumentSelect() {
           />
           <a href={docName == "" ? `/${uuidV4()}` : `/${docName}`}>
             <button>
-              <Image src="/create.svg" width="24" height="24" />
+              <Image
+                src="/create.svg"
+                width="24"
+                height="24"
+                alt="Create document button"
+              />
             </button>
           </a>
         </div>

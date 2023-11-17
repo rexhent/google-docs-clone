@@ -26,7 +26,7 @@ const MOBILE_TOOLBAR_OPTIONS = [
   ["image", "clean"],
 ];
 
-export default function TextEditor({ params }: { params: { id: string } }) {
+export default function TextEditor({ params }) {
   const documentId = params.id;
   const [socket, setSocket] = useState();
   const [quill, setQuill] = useState();
