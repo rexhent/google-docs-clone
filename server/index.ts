@@ -1,8 +1,5 @@
-const mongoose = require("mongoose");
-const DocumentSchema = require("./Document.ts");
-const dotenv = require("dotenv").config();
-
-mongoose.connect(process.env.DB, {});
+const { createDocumentSchema, pool } = require("./document");
+// import { createDocumentSchema, pool } from "./documentSchema.ts";
 
 const io = require("socket.io")(3001, {
   cors: {
@@ -13,9 +10,9 @@ const io = require("socket.io")(3001, {
   },
 });
 
-console.log("This server is running");
+console.log("This server is running pg");
 
-const defaultValue = "";
+const defaultValue: any = {};
 
 io.on("connection", (socket: any) => {
   socket.on("document-select", async () => {
@@ -28,12 +25,12 @@ io.on("connection", (socket: any) => {
     socket.join(documentId);
     socket.emit("load-document", document.data);
 
-    socket.on("send-changes", (delta: Object) => {
+    socket.on("send-changes", (delta: any) => {
       socket.broadcast.to(documentId).emit("receive-changes", delta);
     });
 
-    socket.on("save-document", async (data: Object) => {
-      await DocumentSchema.findByIdAndUpdate(documentId, { data });
+    socket.on("save-document", async (data: object) => {
+      await updateDocument(documentId, data);
     });
   });
 });
@@ -41,11 +38,26 @@ io.on("connection", (socket: any) => {
 async function findOrCreateDocument(id: string) {
   if (id == null) return;
 
-  const document = await DocumentSchema.findById(id);
+  const result = await pool.query("SELECT * FROM documents WHERE _id = $1", [
+    id,
+  ]);
+  const document = result.rows[0];
+
   if (document) return document;
-  return await DocumentSchema.create({ _id: id, data: defaultValue });
+
+  await pool.query("INSERT INTO documents (_id, data) VALUES ($1, $2)", [
+    id,
+    defaultValue,
+  ]);
+
+  return { _id: id, data: defaultValue };
 }
 
 async function getAllDocuments() {
-  return await DocumentSchema.find({}, "_id");
+  const result = await pool.query("SELECT _id FROM documents");
+  return result.rows;
+}
+
+async function updateDocument(id: string, data: object) {
+  await pool.query("UPDATE documents SET data = $1 WHERE _id = $2", [data, id]);
 }
