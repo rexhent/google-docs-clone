@@ -1,5 +1,6 @@
 const { createDocumentSchema, pool } = require("./Document");
-// import { createDocumentSchema, pool } from "./documentSchema.ts";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 const io = require("socket.io")(3001, {
   cors: {
@@ -54,8 +55,22 @@ async function findOrCreateDocument(id: string) {
 }
 
 async function getAllDocuments() {
-  const result = await pool.query("SELECT _id FROM documents");
-  return result.rows;
+  try {
+    const result = await prisma.documents.findMany({
+      select: {
+        id: true,
+      },
+    });
+    return result.map((doc) => doc.id);
+  } catch (error) {
+    console.error("Error fetching document IDs:", error);
+    throw error;
+  } finally {
+    await prisma.$disconnect();
+  }
+  // const result = await pool.query("SELECT _id FROM documents");
+  // console.log(result);
+  // return result;
 }
 
 async function updateDocument(id: string, data: object) {
