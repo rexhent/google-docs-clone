@@ -12,8 +12,6 @@ export default function DocumentSelect() {
   const [docName, setDocName] = useState("");
 
   useEffect(() => {
-    // const s = io(`http://192.168.150.112:3001`);
-    // const s = io(`https://google-docs-clone-backend-r332h.ondigitalocean.app/`);
     const s = io(`https://ec2.rexhent.xyz/`);
     setSocket(s);
 
@@ -72,7 +70,6 @@ export default function DocumentSelect() {
         </div>
       </div>
       <div className="list">{listOfDocuments}</div>
-      <p>WARNING: Breaking changes soon</p>
       <Footer documentId="" document={false} />
     </div>
   );
