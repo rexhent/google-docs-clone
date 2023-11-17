@@ -1,7 +1,13 @@
 import "./Footer.css";
 import PropTypes from "prop-types";
 
-export default function Footer({ documentId, document }) {
+export default function Footer({
+  documentId,
+  document,
+}: {
+  documentId: string;
+  document: boolean;
+}) {
   return (
     <div className="footer">
       <footer>
