@@ -63,8 +63,7 @@ async function main() {
           id: true,
         },
       });
-      console.log(result);
-      return result.map((doc) => doc.id);
+      return result;
     } catch (error) {
       console.error("Error fetching document IDs:", error);
       throw error;
