@@ -1,4 +1,4 @@
-const { createDocumentSchema, pool } = require("./documentSchema.ts");
+const { createDocumentSchema, pool } = require("./documentSchema");
 // import { createDocumentSchema, pool } from "./documentSchema.ts";
 
 const io = require("socket.io")(3001, {
