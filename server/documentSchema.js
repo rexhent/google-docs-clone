@@ -3,9 +3,9 @@ const { Pool } = require("pg");
 const dotenv = require("dotenv").config();
 
 const pool = new Pool(
-//   {
-//   connectionString: process.env.PG,
-// }
+  {
+  connectionString: process.env.PG,
+}
 );
 
 async function createDocumentSchema() {
