@@ -55,14 +55,14 @@ async function findOrCreateDocument(id) {
 
   let document = await prisma.documents.findUnique({
     where: {
-      _id: id,
+      id: id,
     },
   });
 
   if (!document) {
     document = await prisma.documents.create({
       data: {
-        _id: id,
+        id: id,
         data: defaultValue,
       },
     });
@@ -74,7 +74,7 @@ async function findOrCreateDocument(id) {
 async function getAllDocuments() {
   const documents = await prisma.documents.findMany({
     select: {
-      _id: true,
+      id: true,
     },
   });
   return documents;
@@ -83,7 +83,7 @@ async function getAllDocuments() {
 async function updateDocument(id, data) {
   await prisma.documents.update({
     where: {
-      _id: id,
+      id: id,
     },
     data: {
       data: data,
