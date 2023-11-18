@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:digitalocean": "npm i && npm i --save-dev && tsc --build && nodemon index.js",
-    "start": "tsc --build && node index.js",
+    "start": "tsc --build && node prisma.js",
     "devStart": "nodemon prisma.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
