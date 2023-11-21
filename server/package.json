@@ -18,6 +18,7 @@
     "socket.io": "^4.7.2"
   },
   "devDependencies": {
+    "@types/pg": "^8.10.9",
     "dotenv": "^16.3.1",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
