@@ -5,6 +5,7 @@ import "quill/dist/quill.snow.css";
 import { io } from "socket.io-client";
 import "./TextEditor.css";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const SAVE_INTERVAL_MS = 2000;
 const DEFAULT_TOOLBAR_OPTIONS = [
@@ -127,6 +128,7 @@ export default function TextEditor({ params }) {
   );
   return (
     <>
+      <Header document={true} />
       <div className="container" ref={wrapperRef} />
       <Footer documentId={documentId} document={true}></Footer>
     </>
