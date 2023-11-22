@@ -4,6 +4,7 @@ import { io } from "socket.io-client";
 import "./page.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import SideBar from "@/components/SideBar";
 
 export default function DocumentSelect() {
   const [documents, setDocuments] = useState("Loading...");
@@ -42,6 +43,7 @@ export default function DocumentSelect() {
   return (
     <div>
       <Header document={false} />
+      <SideBar />
       <div className="list">{listOfDocuments}</div>
       <Footer documentId="" document={false} />
     </div>
