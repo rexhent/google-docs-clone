@@ -27,12 +27,13 @@ class DocumentSocketServer {
       },
     });
 
-    console.log("This server is running pg");
     this.initializeSocketEvents();
+    console.log("This server is running pg");
   }
 
   private initializeSocketEvents(): void {
     this.io.on("connection", (socket: Socket) => {
+      console.log("connected")
       socket.on("document-select", async () => {
         const documents = await this.getAllDocuments();
         socket.emit("load-documents", documents);
