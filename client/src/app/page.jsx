@@ -42,8 +42,8 @@ export default function DocumentSelect() {
 
   return (
     <div>
-      <Header document={false} />
       <SideBar />
+      <Header document={false} />
       <div className="list">{listOfDocuments}</div>
       <Footer documentId="" document={false} />
     </div>

@@ -21,7 +21,8 @@ export default function Header({ document }) {
         </>
       )}
       <h2>Documents</h2>
-      <div className={styles.form}>
+      {!document && (
+        <div className={styles.form}>
         <input
           value={docName}
           onChange={handleInputChange}
@@ -40,6 +41,7 @@ export default function Header({ document }) {
           </button>
         </a>
       </div>
+      )}
     </div>
   );
 }
