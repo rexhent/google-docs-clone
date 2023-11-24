@@ -5,6 +5,9 @@ import "./page.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
+import ChannelBar from "@/components/ChannelBar";
+import ContentContainer from "@/components/ContentContainer";
+import TopNavigation from "@/components/TopNavigation";
 
 export default function DocumentSelect() {
   const [documents, setDocuments] = useState("Loading...");
@@ -41,11 +44,10 @@ export default function DocumentSelect() {
         ));
 
   return (
-    <div>
-      <SideBar />
+    <>
       <Header document={false} />
       <div className="list">{listOfDocuments}</div>
-      <Footer documentId="" document={false} />
-    </div>
+      <Footer className="m-1" documentId="" document={false} />
+    </>
   );
 }

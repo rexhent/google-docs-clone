@@ -12,7 +12,7 @@ export default function Header({ document }) {
     setDocName(e.target.value);
   };
   return (
-    <div className={styles.navbar}>
+    <div className={/*${styles.navbar}*/ `flex justify-between`}>
       {document && (
         <>
           <a href="/" className={styles.a}>
@@ -20,27 +20,27 @@ export default function Header({ document }) {
           </a>
         </>
       )}
-      <h2>Documents</h2>
+      <h2 className="text-4xl">Documents</h2>
       {!document && (
         <div className={styles.form}>
-        <input
-          value={docName}
-          onChange={handleInputChange}
-          id="input"
-          type="text"
-          placeholder="Enter document name"
-        />
-        <a href={docName == "" ? `/${uuidV4()}` : `/${docName}`}>
-          <button>
-            <Image
-              src="/create.svg"
-              width="24"
-              height="24"
-              alt="Create document button"
-            />
-          </button>
-        </a>
-      </div>
+          <input
+            value={docName}
+            onChange={handleInputChange}
+            id="input"
+            type="text"
+            placeholder="Enter document name"
+          />
+          <a href={docName == "" ? `/${uuidV4()}` : `/${docName}`}>
+            <button>
+              <Image
+                src="/create.svg"
+                width="24"
+                height="24"
+                alt="Create document button"
+              />
+            </button>
+          </a>
+        </div>
       )}
     </div>
   );
