@@ -34,111 +34,34 @@ const MOBILE_TOOLBAR_OPTIONS = [
 
 export default function Document({ params }) {
   const documentId = params.id;
-  // const [socket, setSocket] = useState();
-  // const [quill, setQuill] = useState();
-  // const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
-  // useEffect(() => {
-  //   const s = io(`https://google-docs-clone-69nb.onrender.com`);
-  //   // const s = io(`https://ec2.rexhent.xyz/`);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
 
-  //   setSocket(s);
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
-  //   return () => {
-  //     s.disconnect();
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsMobile(window.innerWidth <= 600);
-  //   };
-
-  //   handleResize();
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   if (socket == null || quill == null) return;
-
-  //   socket.once("load-document", (document) => {
-  //     quill.setContents(document);
-  //     quill.enable();
-  //   });
-
-  //   socket.emit("get-document", documentId);
-  // }, [socket, quill, documentId]);
-
-  // useEffect(() => {
-  //   if (socket == null || quill == null) return;
-
-  //   const interval = setInterval(() => {
-  //     socket.emit("save-document", quill.getContents());
-  //   }, SAVE_INTERVAL_MS);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [socket, quill]);
-
-  // useEffect(() => {
-  //   if (socket == null || quill == null) return;
-
-  //   const handler = (delta) => {
-  //     quill.updateContents(delta);
-  //   };
-  //   socket.on("receive-changes", handler);
-
-  //   return () => {
-  //     socket.off("receive-changes", handler);
-  //   };
-  // }, [socket, quill]);
-
-  // useEffect(() => {
-  //   if (socket == null || quill == null) return;
-
-  //   const handler = (delta, oldDelta, source) => {
-  //     if (source !== "user") return;
-  //     socket.emit("send-changes", delta);
-  //   };
-  //   quill.on("text-change", handler);
-
-  //   return () => {
-  //     quill.off("text-change", handler);
-  //   };
-  // }, [socket, quill]);
-
-  // const wrapperRef = useCallback(
-  //   (wrapper) => {
-  //     if (wrapper == null) return;
-
-  //     wrapper.innerHTML = "";
-  //     const editor = document.createElement("div");
-  //     wrapper.append(editor);
-  //     const q = new Quill(editor, {
-  //       theme: "snow",
-  //       modules: {
-  //         toolbar: isMobile ? MOBILE_TOOLBAR_OPTIONS : DEFAULT_TOOLBAR_OPTIONS,
-  //       },
-  //     });
-  //     q.disable();
-  //     q.setText("Loading...");
-  //     setQuill(q);
-  //   },
-  //   [isMobile]
-  // );
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       <div>
-        <SideBar />
-        {/* <Header document={true} /> */}
-        <TopNavigation params={documentId} />w
+        {!isMobile ? (
+          <>
+            <SideBar />
+            <TopNavigation params={documentId} />
+          </>
+        ) : (
+          <Header document={true} />
+        )}
+
         <div className="flex">
-          <ChannelBar />
+          {!isMobile && <ChannelBar />}
           <TextEditor params={documentId} />
         </div>
         <Footer documentId={documentId} document={true}></Footer>

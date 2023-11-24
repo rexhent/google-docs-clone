@@ -12,7 +12,7 @@ export default function Header({ document }) {
     setDocName(e.target.value);
   };
   return (
-    <div className={/*${styles.navbar}*/ `flex justify-between`}>
+    <div className={`${styles.navbar}` /*`flex justify-between`*/}>
       {document && (
         <>
           <a href="/" className={styles.a}>
