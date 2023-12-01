@@ -55,3 +55,5 @@ class DocumentSocketServer {
     return await DocumentSchema.find({}, "_id");
   }
 }
+
+const documentSocketServer = new DocumentSocketServer();
