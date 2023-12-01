@@ -7,7 +7,7 @@ class DocumentSocketServer {
   private defaultValue = "";
 
   constructor() {
-    mongoose.connect(process.env.MONGO, {});
+    mongoose.connect(process.env.DB, {});
     this.io = require("socket.io")(3001, {
       cors: {
         origin: "*",
