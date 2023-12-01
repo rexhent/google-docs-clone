@@ -39,7 +39,7 @@ export default function DocumentSelect() {
       ? documents
       : documents.map((id) => (
           <a key={id} href={`/${id}`}>
-            <button key={id}> {id}</button>
+            <button key={id}>{id}</button>
           </a>
         ));
 

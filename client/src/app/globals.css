@@ -268,8 +268,8 @@ a {
   }
 
   .channel-bar {
-    @apply w-80 h-auto m-0 ml-16 bg-gray-200 dark:bg-gray-800
-     overflow-hidden;
+    @apply w-[30rem] h-auto m-0 ml-16 bg-gray-200 dark:bg-gray-800
+     overflow-hidden sticky;
   }
 
   .channel-container {
@@ -301,7 +301,7 @@ a {
   }
 
   .dropdown-header-text {
-    @apply text-gray-500  text-opacity-90 
+    @apply text-gray-500 text-opacity-90 
     text-lg font-semibold
     cursor-default;
   }

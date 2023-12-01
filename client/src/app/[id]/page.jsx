@@ -64,7 +64,7 @@ export default function Document({ params }) {
           {!isMobile && <ChannelBar />}
           <TextEditor params={documentId} />
         </div>
-        <Footer documentId={documentId} document={true}></Footer>
+        {isMobile && <Footer documentId={documentId} document={true}></Footer>}
       </div>
     </>
   );

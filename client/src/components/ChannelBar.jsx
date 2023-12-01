@@ -34,7 +34,7 @@ const ChannelBar = () => {
   }, [documents, socket]);
 
   return (
-    <div className="channel-bar shadow-lg">
+    <div className="channel-bar shadow-lg h-screen">
       <ChannelBlock />
       <div className="channel-container">
         <Dropdown header="Documents" selections={documents} />

@@ -1,6 +1,7 @@
 import { BsPlus, BsFillLightningFill, BsGearFill } from "react-icons/bs";
 import { FaFire, FaDiceOne, FaHome } from "react-icons/fa";
 import styles from "./SideBar.module.css";
+import { v4 as uuidV4 } from "uuid";
 
 const SideBar = () => {
   return (
@@ -8,13 +9,17 @@ const SideBar = () => {
       className="fixed top-0 left-0 h-screen w-16 flex flex-col
     bg-white dark:bg-gray-900 shadow-lg"
     >
-      <SideBarIcon link="/" icon={<FaHome size="28" />} />
+      <SideBarIcon text="Home" link="/" icon={<FaHome size="28" />} />
       <Divider />
-      <SideBarIcon icon={<BsPlus size="32" />} />
+      <SideBarIcon
+        text="New Document"
+        link={`/${uuidV4()}`}
+        icon={<BsPlus size="32" />}
+      />
       <SideBarIcon icon={<BsFillLightningFill size="20" />} />
       <SideBarIcon icon={<FaDiceOne size="20" />} />
       <Divider />
-      <SideBarIcon icon={<BsGearFill size="22" />} />
+      <SideBarIcon text="Settings" icon={<BsGearFill size="22" />} />
     </div>
   );
 };
