@@ -3,7 +3,7 @@ const DocumentSchema = require("./Document.ts");
 const dotenv = require("dotenv").config();
 
 class DocumentSocketServer {
-  private io: Server;
+  private io;
   private defaultValue = "";
 
   constructor() {
