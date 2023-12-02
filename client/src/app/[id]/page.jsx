@@ -34,11 +34,11 @@ const MOBILE_TOOLBAR_OPTIONS = [
 
 export default function Document({ params }) {
   const documentId = params.id;
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 600);
+      setIsMobile(window.innerWidth <= 900);
     };
 
     handleResize();
@@ -54,17 +54,21 @@ export default function Document({ params }) {
         {!isMobile ? (
           <>
             <SideBar />
+            <ChannelBar />
             <TopNavigation params={documentId} />
           </>
         ) : (
           <Header document={true} />
         )}
 
-        <div className="flex">
-          {!isMobile && <ChannelBar />}
+        <div className="text-editor-div">
           <TextEditor params={documentId} />
         </div>
-        <Footer documentId={documentId} document={true}></Footer>
+        {isMobile ? (
+          <Footer documentId={documentId} document={true}></Footer>
+        ) : (
+          <Footer documentId={""} document={false}></Footer>
+        )}
       </div>
     </>
   );

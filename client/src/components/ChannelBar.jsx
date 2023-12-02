@@ -34,12 +34,14 @@ const ChannelBar = () => {
   }, [documents, socket]);
 
   return (
-    <div className="channel-bar shadow-lg">
-      <ChannelBlock />
-      <div className="channel-container">
-        <Dropdown header="Documents" selections={documents} />
-        {/* <Dropdown header="Questions" selections={questions} />
-        <Dropdown header="Random" selections={random} /> */}
+    <div className="fixed">
+      <div className="pt-24 channel-bar shadow-lg z-10">
+        <ChannelBlock />
+        <div className="channel-container">
+          <Dropdown header="Documents" selections={documents} />
+          {/* <Dropdown header="Questions" selections={questions} />
+      <Dropdown header="Random" selections={random} /> */}
+        </div>
       </div>
     </div>
   );

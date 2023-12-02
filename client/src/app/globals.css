@@ -148,7 +148,9 @@ a {
     bg-gray-300 dark:bg-gray-700 bg-opacity-90 
     w-full h-16 
     m-0 
-    shadow-lg;
+    shadow-lg
+    z-10
+    fixed;
   }
 
   .top-navigation-icon {
@@ -269,7 +271,7 @@ a {
 
   .channel-bar {
     @apply w-80 h-auto m-0 ml-16 bg-gray-200 dark:bg-gray-800
-     overflow-hidden;
+     overflow-hidden fixed top-0 left-0 h-screen flex flex-col;
   }
 
   .channel-container {

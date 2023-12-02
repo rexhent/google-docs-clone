@@ -35,6 +35,15 @@ body {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
+@media only screen and (min-width: 900px) {
+  .text-editor-div {
+    padding-left: 384px;
+  }
+  .container .ql-toolbar.ql-snow {
+    padding-top: 70px;
+  }
+}
+
 @page {
   margin: 1in;
 }
