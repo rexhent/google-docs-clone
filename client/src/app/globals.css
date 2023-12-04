@@ -123,8 +123,8 @@ a {
   .sidebar-icon {
     @apply relative flex items-center justify-center 
     h-12 w-12 mt-2 mb-2 mx-auto  
-  bg-gray-400 hover:bg-green-600 dark:bg-gray-800 
-  text-green-500 hover:text-white
+  bg-gray-400 hover:bg-sky-600 dark:bg-gray-800 
+  dark:text-green-500 text-white hover:text-white
     hover:rounded-xl rounded-3xl
     transition-all duration-300 ease-linear
     cursor-pointer shadow-lg;
@@ -148,7 +148,9 @@ a {
     bg-gray-300 dark:bg-gray-700 bg-opacity-90 
     w-full h-16 
     m-0 
-    shadow-lg;
+    shadow-lg
+    z-10
+    fixed;
   }
 
   .top-navigation-icon {
@@ -268,8 +270,8 @@ a {
   }
 
   .channel-bar {
-    @apply w-[30rem] h-auto m-0 ml-16 bg-gray-200 dark:bg-gray-800
-     overflow-hidden sticky;
+    @apply w-80 h-auto m-0 ml-16 bg-gray-200 dark:bg-gray-800
+     overflow-hidden fixed top-0 left-0 h-screen flex flex-col;
   }
 
   .channel-container {
