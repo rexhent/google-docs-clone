@@ -11,7 +11,7 @@ const SideBar = () => {
     >
       <SideBarIcon text="Home" link="/" icon={<FaHome size="28" />} />
       <Divider />
-      <SideBarIcon icon={<BsPlus size="32" />} />
+      <SideBarIcon text="New Document" icon={<BsPlus size="32" />} />
       <SideBarIcon icon={<BsFillLightningFill size="20" />} />
       <SideBarIcon icon={<FaDiceOne size="20" />} />
       <Divider />

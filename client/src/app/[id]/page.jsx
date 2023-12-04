@@ -54,7 +54,6 @@ export default function Document({ params }) {
         {!isMobile ? (
           <>
             <SideBar />
-            <ChannelBar />
             <TopNavigation params={documentId} />
           </>
         ) : (
@@ -62,6 +61,7 @@ export default function Document({ params }) {
         )}
 
         <div className="text-editor-div">
+          <ChannelBar />
           <TextEditor params={documentId} />
         </div>
         {isMobile ? (
